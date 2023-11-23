@@ -36,6 +36,11 @@ public class PlayerLife : MonoBehaviour
                 GameManager.instance.isDying = true;
             }
         }
+
+        if (collision.gameObject.CompareTag("Trophy"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        }
     }
 
     private void Die()

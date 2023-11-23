@@ -7,6 +7,7 @@ TagManager:
   - Cherry
   - Trap
   - Enemy
+  - Trophy
   layers:
   - Default
   - TransparentFX

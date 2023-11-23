@@ -41,9 +41,9 @@ public class PlayerLife : MonoBehaviour
     private void Die()
     {
         GameManager.instance.lives--;
-        UpdateLivesText();
         anim.SetTrigger("death");
         rb.bodyType = RigidbodyType2D.Static;
+        UpdateLivesText();
     }
 
     private void UpdateLivesText()
@@ -53,6 +53,11 @@ public class PlayerLife : MonoBehaviour
 
     public void RestartLevel()
     {
+        if (GameManager.instance.lives <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            return;
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         GameManager.instance.isDying = false;
     }
